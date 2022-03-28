@@ -1,8 +1,7 @@
 class Transaction{
-  constructor(date, credited, debited, balance){
+  constructor(date, previousBalance, balance){
     this.date = date;
-    this.credited = credited;
-    this.debited = debited;
+    this.previousBalance = previousBalance;
     this.balance = balance;
   }
 

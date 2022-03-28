@@ -16,8 +16,8 @@ class Account {
   }
 
   deposit(money){
-    this.balance += money;
-    this.transactions.push(new this.transaction(this.#now(), money, null, this.balance));
+    this.balance += money
+    this.transactions.push(new this.transaction(this.#now(), this.balance - money, this.balance));
     return this.balance;
   }
 

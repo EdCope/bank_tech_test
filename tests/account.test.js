@@ -18,7 +18,7 @@ describe('Account', () => {
     });
 
     it('records a transaction when a deposit is made', () => {
-      transaction = {date: new Date(Date.now()), credited: 5, debited: null, balance: 5}
+      transaction = {date: new Date(Date.now()), previousBalance: 0, balance: 5}
       account.deposit(5);
       expect(account.getTransactions()).toEqual([transaction]);
     })
