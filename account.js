@@ -1,14 +1,25 @@
+const Transaction = require("./transaction");
+
 class Account {
-  constructor(){
+    constructor(){
+    
     this.balance = 0;
+    this.transactions = [];
+
   }
 
   getBalance(){
     return this.balance;
   }
 
+  getTransactions(){
+    return this.transactions;
+  }
+
   deposit(money){
-    return this.balance += money;
+    this.balance += money;
+    this.transactions.push(new Transaction(this.#now(), money, null, this.balance));
+    return this.balance;
   }
 
   withdraw(money){
@@ -17,6 +28,11 @@ class Account {
     }
     return this.balance -= money;
   }
+
+  #now(){
+    return new Date(Date.now())
+  }
+
 }
 
 module.exports = Account;
