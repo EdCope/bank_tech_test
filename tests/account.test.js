@@ -51,5 +51,28 @@ describe('Account', () => {
       expect(() => {account.withdraw(1)}).toThrow("You cannot withdraw below 0");
     })
   })
+
+  describe('printStatement', () => {
+    it('prints out a statement showing a transaction history', () => {
+      jest
+        .spyOn(global.Date, 'now')
+        .mockImplementationOnce(() => new Date(Date.UTC('2023','00','10')).valueOf());
+      account.deposit(1000);
+      jest
+        .spyOn(global.Date, 'now')
+        .mockImplementationOnce(() => new Date(Date.UTC('2023','00','13')).valueOf())
+      account.deposit(2000);
+      jest
+        .spyOn(global.Date, 'now')
+        .mockImplementationOnce(() => new Date(Date.UTC('2023','00','14')).valueOf())
+      account.withdraw(500);
+      expect(account.printStatement())
+      .toEqual("date || credit || debit || balance\n" +
+      "14/01/2023 || || 500.00 || 2500.00\n" +
+      "13/01/2023 || 2000.00 || || 3000.00\n" +
+      "10/01/2023 || 1000.00 || || 1000.00\n")
+    })
+    
+  })
   
 });

@@ -15,6 +15,24 @@ class Account {
     return this.transactions;
   }
 
+  printStatement(){
+    let statement = "date || credit || debit || balance\n"
+    this.getTransactions()
+      .reverse()
+      .forEach(transaction => {
+        let change = transaction.balance - transaction.previousBalance;
+        let credit = 0, debit = 0;
+        change > 0 ? credit += change : debit += -change;
+        
+        statement += `${transaction.date.toLocaleDateString()} `
+        statement += `|| ${credit === 0 ? `` : `${credit.toFixed(2)} `}`
+        statement += `|| ${debit === 0 ? `` : `${debit.toFixed(2)} `}`
+        statement += `|| ${transaction.balance.toFixed(2)}\n`
+      })
+
+    return statement;
+  }
+
   deposit(money){
     if(money === 0) throw "You cannot deposit nothing";
     this.#recordTransaction(money);

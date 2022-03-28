@@ -17,7 +17,9 @@ Run ```npm install```
 
 ##Starting the application
 
-Run the application ```TBD```.
+Run the application in REPL
+
+![REPL](/ref/Node_REPL.png)
 
 Run tests ```jest``` or ```npm test```.
 
