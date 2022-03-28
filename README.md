@@ -23,6 +23,16 @@ Run the application in REPL
 
 Run tests ```jest``` or ```npm test```.
 
+### Approach and Structure
+
+- In a bank you have many accounts. Determining the first class to be account. This will hold the details of an individuals actions.
+
+- Each account will have a balance value that can be manipulated depending on what the user wants to do.
+
+- Each time a user interacts a new Transaction/record should be saved of this event. Transaction class holds the details of an individual record.
+
+- When a user wants to print their statement they can retrieve all the Transactions stored and individually format them.
+
 ### Acceptance Criteria
 
 **Given** a client makes a deposit of 1000 on 10-01-2023  
