@@ -19,7 +19,7 @@ Run ```npm install```
 
 Run the application in REPL
 
-<img src="ref/Node_Repl.png" width="50%" height="50%">
+<img src="ref/Node_REPL.png" width="50%" height="50%">
 
 Run tests ```jest``` or ```npm test```.
 
