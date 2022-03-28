@@ -1,9 +1,10 @@
 const Account = require('../account');
+const Transaction = require('../transaction');
 
 describe('Account', () => {
   let account;
   beforeEach(() => {
-    account = new Account();
+    account = new Account( Transaction );
   })
   
   it('has an initial balance of 0', () => {

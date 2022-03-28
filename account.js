@@ -1,8 +1,7 @@
-const Transaction = require("./transaction");
-
 class Account {
-    constructor(){
+    constructor(transactionClass){
     
+    this.transaction = transactionClass;
     this.balance = 0;
     this.transactions = [];
 
@@ -18,7 +17,7 @@ class Account {
 
   deposit(money){
     this.balance += money;
-    this.transactions.push(new Transaction(this.#now(), money, null, this.balance));
+    this.transactions.push(new this.transaction(this.#now(), money, null, this.balance));
     return this.balance;
   }
 
