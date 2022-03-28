@@ -20,4 +20,8 @@ describe('Account', () => {
     account.withdraw(3);
     expect(account.getBalance()).toEqual(2);
   })
+
+  it('raises an error if you try to withdraw below 0', () => {
+    expect(() => {account.withdraw(1)}).toThrow("You cannot withdraw below 0");
+  })
 });

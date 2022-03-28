@@ -12,6 +12,9 @@ class Account {
   }
 
   withdraw(money){
+    if(money > this.balance){
+      throw "You cannot withdraw below 0";
+    }
     return this.balance -= money;
   }
 }
