@@ -1,0 +1,16 @@
+{
+  "name": "bank_tech_test",
+  "version": "1.0.0",
+  "description": "Bank Tech Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "jest": "^27.5.1"
+  }
+}
