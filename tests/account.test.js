@@ -2,7 +2,6 @@ const Account = require('../account');
 const Transaction = require('../transaction');
 
 describe('Account', () => {
-  let account;
   beforeEach(() => {
     account = new Account( Transaction );
   })
@@ -30,6 +29,14 @@ describe('Account', () => {
       account.deposit(5);
       account.withdraw(3);
       expect(account.getBalance()).toEqual(2);
+    })
+
+    it('records a transaction when a withdrawal is made', () => {
+      transaction = {date: new Date(Date.now()), previousBalance: 5, balance: 2}
+      account.balance = 5;
+      account.withdraw(3);
+          
+      expect(account.getTransactions()).toEqual([transaction])
     })
   
     it('raises an error if you try to withdraw below 0', () => {

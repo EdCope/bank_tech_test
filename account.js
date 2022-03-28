@@ -16,20 +16,24 @@ class Account {
   }
 
   deposit(money){
-    this.balance += money
-    this.transactions.push(new this.transaction(this.#now(), this.balance - money, this.balance));
-    return this.balance;
+    this.#recordTransaction(money);
+    return this.balance += money;
   }
 
   withdraw(money){
     if(money > this.balance){
       throw "You cannot withdraw below 0";
     }
+    this.#recordTransaction(-money);
     return this.balance -= money;
   }
 
   #now(){
     return new Date(Date.now())
+  }
+
+  #recordTransaction(money){
+    this.transactions.push(new this.transaction(this.#now(), this.balance, this.balance + money));
   }
 
 }
