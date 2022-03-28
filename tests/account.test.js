@@ -42,6 +42,10 @@ describe('Account', () => {
           
       expect(account.getTransactions()).toEqual([transaction])
     })
+
+    it('raises an error when a withdrawal of 0 is attempted', () => {
+      expect(() => {account.withdraw(0)}).toThrow("You cannot withdraw nothing");
+    })
   
     it('raises an error if you try to withdraw below 0', () => {
       expect(() => {account.withdraw(1)}).toThrow("You cannot withdraw below 0");

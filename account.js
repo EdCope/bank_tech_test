@@ -22,6 +22,7 @@ class Account {
   }
 
   withdraw(money){
+    if(money === 0) throw "You cannot withdraw nothing";
     if(money > this.balance) throw "You cannot withdraw below 0";
     this.#recordTransaction(-money);
     return this.balance -= money;
