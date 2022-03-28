@@ -1,8 +1,8 @@
-#Bank Tech Test
+# Bank Tech Test
 
 A simple banking application to run in Node.js written as a practice technical test at Makers.
 
-###Setup
+### Setup
 
 To install the program make sure you have:
 
@@ -10,20 +10,20 @@ To install the program make sure you have:
 
 Run ```npm install```
 
-####Includes
+#### Includes
 
-[Jest](https://jestjs.io)
+[Jest](https://jestjs.io)  
 [ESLint](https://eslint.org)
 
-##Starting the application
+## Starting the application
 
 Run the application in REPL
 
-![REPL](/ref/Node_REPL.png)
+<img src="/ref/Node_Repl.png" width="50%" height="50%">
 
 Run tests ```jest``` or ```npm test```.
 
-###Acceptance Criteria
+### Acceptance Criteria
 
 **Given** a client makes a deposit of 1000 on 10-01-2023  
 **And** a deposit of 2000 on 13-01-2023  
