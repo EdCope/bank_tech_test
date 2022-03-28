@@ -22,6 +22,10 @@ describe('Account', () => {
       expect(account.getTransactions()).toEqual([transaction]);
     })
 
+    it('raises an error when a deposit of 0 is made', () => {
+      expect(() => {account.deposit(0)}).toThrow("You cannot deposit nothing");
+    })
+
   })
 
   describe('withdraw', () => {

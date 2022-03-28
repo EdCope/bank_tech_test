@@ -16,14 +16,13 @@ class Account {
   }
 
   deposit(money){
+    if(money === 0) throw "You cannot deposit nothing";
     this.#recordTransaction(money);
     return this.balance += money;
   }
 
   withdraw(money){
-    if(money > this.balance){
-      throw "You cannot withdraw below 0";
-    }
+    if(money > this.balance) throw "You cannot withdraw below 0";
     this.#recordTransaction(-money);
     return this.balance -= money;
   }
