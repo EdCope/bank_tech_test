@@ -1,6 +1,6 @@
 class Account {
   constructor(transactionClass){
-    this.transaction = transactionClass;
+    this.Transaction = transactionClass;
     this.balance = 0;
     this.transactions = [];
   }
@@ -11,19 +11,20 @@ class Account {
 
   printStatement(){
     let statement = "date || credit || debit || balance\n"
+    let runningTotal = 0;
+    let balances = this.getTransactions()
+        .map(transaction => {
+          return runningTotal += transaction.amount;
+        })
+        .reverse();
     this.getTransactions()
       .reverse()
-      .forEach(transaction => {
-        let change = transaction.balance - transaction.previousBalance;
-        let credit = 0, debit = 0;
-        change > 0 ? credit += change : debit += -change;
-        
+      .forEach( (transaction, index) => {
         statement += `${transaction.date.toLocaleDateString()} `
-        statement += `|| ${credit === 0 ? `` : `${credit.toFixed(2)} `}`
-        statement += `|| ${debit === 0 ? `` : `${debit.toFixed(2)} `}`
-        statement += `|| ${transaction.balance.toFixed(2)}\n`
+        statement += `|| ${transaction.amount < 0 ? `` : `${transaction.amount.toFixed(2)} `}`
+        statement += `|| ${transaction.amount > 0 ? `` : `${(-transaction.amount).toFixed(2)} `}`
+        statement += `|| ${balances[index].toFixed(2)}\n`
       })
-
     return statement;
   }
 
@@ -40,12 +41,12 @@ class Account {
     return this.balance -= money;
   }
 
-  #now(){
-    return new Date(Date.now())
+  #recordTransaction(money){
+    this.transactions.push(new this.Transaction(this.#now(), money));
   }
 
-  #recordTransaction(money){
-    this.transactions.push(new this.transaction(this.#now(), this.balance, this.balance + money));
+  #now(){
+    return new Date(Date.now())
   }
 
 }

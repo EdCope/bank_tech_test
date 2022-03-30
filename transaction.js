@@ -1,8 +1,7 @@
 class Transaction{
-  constructor(date, previousBalance, balance){
+  constructor(date, amount){
     this.date = date;
-    this.previousBalance = previousBalance;
-    this.balance = balance;
+    this.amount = amount;
   }
 
   getDate(){
