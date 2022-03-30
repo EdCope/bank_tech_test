@@ -2,6 +2,7 @@ const Account = require('../account');
 const Transaction = require('../transaction');
 
 describe('Account', () => {
+  let account;
   beforeEach(() => {
     account = new Account( Transaction );
   })

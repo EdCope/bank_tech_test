@@ -1,3 +1,5 @@
+const Statement = require("./statement");
+
 class Account {
   constructor(transactionClass){
     this.Transaction = transactionClass;
@@ -10,22 +12,8 @@ class Account {
   }
 
   printStatement(){
-    let statement = "date || credit || debit || balance\n"
-    let runningTotal = 0;
-    let balances = this.getTransactions()
-        .map(transaction => {
-          return runningTotal += transaction.amount;
-        })
-        .reverse();
-    this.getTransactions()
-      .reverse()
-      .forEach( (transaction, index) => {
-        statement += `${transaction.date.toLocaleDateString()} `
-        statement += `|| ${transaction.amount < 0 ? `` : `${transaction.amount.toFixed(2)} `}`
-        statement += `|| ${transaction.amount > 0 ? `` : `${(-transaction.amount).toFixed(2)} `}`
-        statement += `|| ${balances[index].toFixed(2)}\n`
-      })
-    return statement;
+    const statement = new Statement(this);
+    return statement.create();
   }
 
   deposit(money){
