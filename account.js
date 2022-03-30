@@ -1,14 +1,8 @@
 class Account {
-    constructor(transactionClass){
-    
+  constructor(transactionClass){
     this.transaction = transactionClass;
     this.balance = 0;
     this.transactions = [];
-
-  }
-
-  getBalance(){
-    return this.balance;
   }
 
   getTransactions(){

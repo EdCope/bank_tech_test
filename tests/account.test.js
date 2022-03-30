@@ -7,13 +7,13 @@ describe('Account', () => {
   })
   
   it('has an initial balance of 0', () => {
-    expect(account.getBalance()).toEqual(0);
+    expect(account.balance).toEqual(0);
   });
 
   describe('deposit', () => {
     it('a deposit can be made to the account', () => {
       account.deposit(5);
-      expect(account.getBalance()).toEqual(5);
+      expect(account.balance).toEqual(5);
     });
 
     it('records a transaction when a deposit is made', () => {
@@ -32,7 +32,7 @@ describe('Account', () => {
     it('can withdraw from the account', () => {
       account.deposit(5);
       account.withdraw(3);
-      expect(account.getBalance()).toEqual(2);
+      expect(account.balance).toEqual(2);
     })
 
     it('records a transaction when a withdrawal is made', () => {
