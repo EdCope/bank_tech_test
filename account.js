@@ -28,14 +28,14 @@ class Account {
   }
 
   deposit(money){
-    if(money === 0) throw "You cannot deposit nothing";
+    if(money === 0) throw "Deposits must be a positive number";
     this.#recordTransaction(money);
     return this.balance += money;
   }
 
   withdraw(money){
-    if(money === 0) throw "You cannot withdraw nothing";
-    if(money > this.balance) throw "You cannot withdraw below 0";
+    if(money === 0) throw "Withdrawal amounts must be a positive number";
+    if(money > this.balance) throw "There is insufficient balance to withdraw";
     this.#recordTransaction(-money);
     return this.balance -= money;
   }

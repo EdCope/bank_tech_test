@@ -23,7 +23,7 @@ describe('Account', () => {
     })
 
     it('raises an error when a deposit of 0 is made', () => {
-      expect(() => {account.deposit(0)}).toThrow("You cannot deposit nothing");
+      expect(() => {account.deposit(0)}).toThrow("Deposits must be a positive number");
     })
 
   })
@@ -44,11 +44,11 @@ describe('Account', () => {
     })
 
     it('raises an error when a withdrawal of 0 is attempted', () => {
-      expect(() => {account.withdraw(0)}).toThrow("You cannot withdraw nothing");
+      expect(() => {account.withdraw(0)}).toThrow("Withdrawal amounts must be a positive number");
     })
   
     it('raises an error if you try to withdraw below 0', () => {
-      expect(() => {account.withdraw(1)}).toThrow("You cannot withdraw below 0");
+      expect(() => {account.withdraw(1)}).toThrow("There is insufficient balance to withdraw");
     })
   })
 
