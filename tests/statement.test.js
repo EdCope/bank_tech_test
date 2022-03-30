@@ -1,7 +1,7 @@
 const Statement = require('../statement');
 
 describe('Statement', () => {
-  let statement;
+  let statement, t1, t2, t3, account;
   beforeEach(() => {
     t1 = { date: new Date(Date.UTC('2023','00','10')), amount: 500 }
     t2 = { date: new Date(Date.UTC('2023','00','11')), amount: -200 }
